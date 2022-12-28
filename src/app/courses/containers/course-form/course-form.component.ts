@@ -14,6 +14,7 @@ import { CoursesService } from '../../services/courses.service';
 })
 export class CourseFormComponent {
   form = this.formBuilder.group({
+    _id: [''],
     name: [''],
     category: ['']
   });
@@ -27,6 +28,7 @@ export class CourseFormComponent {
   ) {
     const course: Course = this.route.snapshot.data['course'];
       this.form.setValue({
+        _id: course._id,
         name: course.name,
         category: course.category
       });
@@ -47,7 +49,7 @@ export class CourseFormComponent {
 
   private onSucess() {
     this.snackBar.open('Curso salvo com sucesso!', '', { duration: 5000 });
-    this.onCancel;
+    this.onCancel();
   }
 
   private onError() {
