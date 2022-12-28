@@ -26,6 +26,6 @@ export class CoursesService {
   }
 
   loadById(id: string){
-    this.httpClient.get<Course>(`${this.API}/${id}`)
+    return this.httpClient.get<Course>(`${this.API}/${id}`)
   }
 }

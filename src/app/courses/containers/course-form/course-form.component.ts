@@ -1,3 +1,5 @@
+import { Course } from './../../model/course';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
@@ -20,8 +22,15 @@ export class CourseFormComponent {
     private formBuilder: NonNullableFormBuilder,
     private service: CoursesService,
     private snackBar: MatSnackBar,
-    private location: Location
-  ) {}
+    private location: Location,
+    private route: ActivatedRoute
+  ) {
+    const course: Course = this.route.snapshot.data['course'];
+      this.form.setValue({
+        name: course.name,
+        category: course.category
+      });
+  }
 
   onSubmit() {
     console.log(this.form.value);
