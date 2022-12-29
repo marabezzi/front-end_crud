@@ -1,11 +1,11 @@
-import { Course } from './../../model/course';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 import { CoursesService } from '../../services/courses.service';
+import { Course } from './../../model/course';
 
 @Component({
   selector: 'app-course-form',
